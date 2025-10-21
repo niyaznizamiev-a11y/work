@@ -1,2 +1,2 @@
 # work 
-подключил react и babel
+подключил typescript и tailwind
