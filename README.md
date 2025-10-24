@@ -1,2 +1,2 @@
 # work 
-подключил typescript и tailwind
+подключил typescript, postcss и tailwind
