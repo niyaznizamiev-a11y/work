@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './style.css'; // Не забудьте создать файл стилей
 
 function App() {
-  const [activeTab, setActiveTab] = useState('tab1');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>('tab1');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const handleTabClick = (tabId) => {
+  const handleTabClick = (tabId: string): void => {
     setActiveTab(tabId);
   };
 
-  const handleFeedbackSubmit = (e) => {
+  const handleFeedbackSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     // Обработка отправки формы
     alert('Форма отправлена!');
@@ -128,9 +128,6 @@ function App() {
           </div>
           
           <h2>Электронные услуги</h2>
-          <h1 class="text-3xl font-bold underline">
-          Hello world!
-        </h1>
           <p>Роскадастр предоставляет возможность получения государственных услуг в электронном виде через официальный сайт и портал государственных услуг.</p>
           
           <p>Среди электронных услуг доступны:</p>
@@ -192,7 +189,7 @@ function App() {
             <form className="feedback-form" onSubmit={handleFeedbackSubmit}>
               <input type="text" placeholder="Ваше имя" required />
               <input type="email" placeholder="Ваш email" required />
-              <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
+              <textarea placeholder="Ваше сообщение" rows={5} required></textarea>
               <button type="submit">Отправить</button>
             </form>
           </div>
