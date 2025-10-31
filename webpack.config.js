@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    filename: 'main.js', // Измените на .js вместо .tsx
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
@@ -16,12 +16,12 @@ module.exports = {
   },
   mode: 'development',
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'], // Добавьте разрешения для TypeScript
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/, // Правило для TypeScript и TSX файлов
+        test: /\.(ts|tsx)$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -35,16 +35,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              modules: true
-            }
-          },
+          'style-loader',
+          'css-loader',
+          'postcss-loader' // Добавьте эту строку
         ]
       }
     ]
