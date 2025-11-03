@@ -73,7 +73,6 @@ function App() {
         if (isLoginMode) {
           setUser(data.user);
           localStorage.setItem('user', JSON.stringify(data.user));
-          alert('Авторизация успешна!');
         } else {
           alert('Регистрация успешна! Теперь вы можете войти.');
           setIsLoginMode(true);
@@ -91,7 +90,6 @@ function App() {
   const handleLogout = (): void => {
     setUser(null);
     localStorage.removeItem('user');
-    alert('Вы вышли из системы');
   };
 
   const handleSearch = (): void => {
@@ -301,7 +299,7 @@ function App() {
                 <li>Получение выписки из ЕГРН</li>
                 <li>Подача заявления на государственную регистрацию прав</li>
                 <li>Подача заявления на кадастровый учёт</li>
-                <li>Получение сведений из фонда данных государственной кадастровой оценки</li>
+                <li>Получение сведений из фонда данных государственной кадастровой оценки Storybook, fsd, playwright, strapi</li>
               </ul>
               
               <button 
