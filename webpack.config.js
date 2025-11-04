@@ -1,7 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/app/index.tsx',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -9,27 +10,24 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, './'),
+      directory: path.join(__dirname, 'dist'),
     },
     port: 3000,
-    open: true
+    open: true,
+    hot: true
   },
   mode: 'development',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.m?js$/,
-        use: {
-          loader: "babel-loader"
-        },
+        test: /\.(ts|tsx|js|jsx)$/,
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
       {
@@ -37,9 +35,15 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'postcss-loader' // Добавьте эту строку
+          'postcss-loader'
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: 'index.html'
+    })
+  ]
 };
