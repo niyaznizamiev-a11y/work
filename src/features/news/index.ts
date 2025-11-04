@@ -1,0 +1,1 @@
+export { useNews } from './model/use-news';
