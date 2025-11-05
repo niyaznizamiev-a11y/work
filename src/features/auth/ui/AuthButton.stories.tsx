@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '../../../../node_modules/@storybook/react/dist/index';
 import { AuthButton } from './AuthButton';
 import { AuthProvider } from '../model/auth-context';
 

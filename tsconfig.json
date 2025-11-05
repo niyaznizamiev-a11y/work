@@ -19,6 +19,12 @@
     },
     "outDir": "./dist"  // ДОБАВЬТЕ ЭТУ СТРОКУ
   },
+  "types": [
+      "node",
+      "react",
+      "react-dom",
+      "@storybook/react"
+    ],
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
