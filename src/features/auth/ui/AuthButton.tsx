@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAuth } from '../model/use-auth';
+import { useAuth } from '../model/auth-context'; // ИЗМЕНИТЬ ИМПОРТ!
 
 export function AuthButton() {
-  const { user, setIsAuthModalOpen, logout } = useAuth();
+  const { user, logout, setIsAuthModalOpen } = useAuth();
 
   if (user) {
     return (

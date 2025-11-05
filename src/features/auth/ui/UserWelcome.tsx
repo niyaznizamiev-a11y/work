@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from '../model/use-auth'; // Изменено с useAuthStore
+import { useAuth } from '../model/auth-context'; // Изменено с useAuthStore
 
 export function UserWelcome() {
   const { user } = useAuth(); // Изменено

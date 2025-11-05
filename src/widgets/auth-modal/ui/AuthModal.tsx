@@ -1,17 +1,18 @@
 import React from 'react';
-import { useAuth } from '@/features/auth';
+import { useAuth } from '@/features/auth/model/auth-context';
+import { Modal } from '@/shared/ui/Modal/Modal';
 import { AuthForm } from '@/features/auth';
-import { Modal } from '@/shared/ui/Modal/Modal'; // Нужно создать этот компонент
 
 export function AuthModal() {
-  const { isAuthModalOpen, setIsAuthModalOpen } = useAuth();
-  
-  if (!isAuthModalOpen) return null;
+  const { isAuthModalOpen, setIsAuthModalOpen, setAuthError } = useAuth();
   
   return (
     <Modal 
       isOpen={isAuthModalOpen} 
-      onClose={() => setIsAuthModalOpen(false)}
+      onClose={() => {
+        setIsAuthModalOpen(false);
+        setAuthError('');
+      }}
       title="Авторизация"
     >
       <AuthForm />

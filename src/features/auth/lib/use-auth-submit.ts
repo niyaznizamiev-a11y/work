@@ -1,4 +1,4 @@
-import { useAuth } from '../model/use-auth';
+import { useAuth } from '../model/auth-context';
 
 export function useAuthSubmit() {
   const { 
