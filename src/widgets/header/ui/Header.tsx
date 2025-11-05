@@ -1,6 +1,6 @@
 import React from 'react';
-import { Search } from '@/features/search';
-import { AuthButton } from '@/features/auth';
+import { Search } from '../../../features/search';
+import { AuthButton } from '../../../features/auth';
 
 export function Header() {
   return (
