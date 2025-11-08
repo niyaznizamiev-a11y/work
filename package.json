@@ -13,7 +13,12 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "update-readme": "node scripts/update-readme.js"
+    "update-readme": "node scripts/update-readme.js",
+    "test:screenshot": "playwright test --grep \"screenshot\"",
+    "test:visual": "playwright test --grep \"visual\"",
+    "test:visual:baseline": "playwright test tests/visual-baseline.spec.js --update-snapshots",
+    "test:visual:compare": "playwright test tests/visual-comparison.spec.js",
+    "test:visual:report": "node scripts/visual-testing.js compare"
   },
   "author": "",
   "license": "ISC",

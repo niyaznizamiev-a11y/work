@@ -20,7 +20,7 @@ export function AuthButton() {
 
   return (
     <button 
-      className="bg-green-600 hover:bg-green-500 px-4 py-2 rounded transition-colors"
+      className="bg-yellow-600 hover:bg-yellow-500 px-4 py-2 rounded transition-colors"
       onClick={() => setIsAuthModalOpen(true)}
     >
       Войти
