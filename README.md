@@ -1,12 +1,24 @@
 ## Последние изменения
         
-- **Дата обновления**: 08.11.2025, 19:21:29
+- **Дата обновления**: 08.11.2025, 19:41:51
 - **Измененные файлы**:
-  - .husky/pre-commit
+  - .github/workflows/playwright.yml
+  - .gitignore
+  - node_modules/.package-lock.json
+  - node_modules/@types/node/README.md
+  - node_modules/@types/node/console.d.ts
+  - node_modules/@types/node/package.json
+  - node_modules/@types/node/process.d.ts
+  - node_modules/@types/node/sqlite.d.ts
+  - node_modules/@types/node/url.d.ts
+  - package-lock.json
   - package.json
-  - scripts/update-readme.js
+  - playwright.config.ts
+  - tests/example.spec.ts
 
 ---
+
+
 
 
 
