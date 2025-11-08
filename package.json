@@ -12,7 +12,8 @@
     "dev:all": "concurrently \"npm run dev:server\" \"npm start\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky"
+    "prepare": "husky install",
+    "update-readme": "node scripts/update-readme.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,1 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
+echo "🔍 Проверяем изменения для README.md..."
+
+# Проверяем, есть ли изменения в важных файлах (исключая сам README)
+if git diff --cached --name-only | grep -v 'README.md' | grep -E '^(src/|lib/|components/|package\.json|scripts/)' > /dev/null; then
+    echo "📝 Обнаружены изменения, обновляю README.md..."
+    
+    # Запускаем скрипт обновления README
+    node scripts/update-readme.js
+    
+    # Добавляем обновленный README.md в текущий коммит
+    git add README.md
+else
+    echo "✅ Нет значимых изменений для README.md"
+fi
