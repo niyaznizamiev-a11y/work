@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User } from '@/entities/user';
+import { User } from '../../../entities/user';
 
 interface AuthContextType {
   user: User | null;
@@ -26,11 +26,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [authError, setAuthError] = useState('');
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
-  }, []);
+    // Функция для безопасного получения пользователя
+    const initializeAuth = () => {
+      try {
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+          const parsedUser = JSON.parse(savedUser) as User;
+          setUser(parsedUser);
+        }
+      } catch (error) {
+        console.error('Error parsing saved user:', error);
+        localStorage.removeItem('user');
+      }
+    };
+
+    initializeAuth();
+  }, []); // Пустой массив зависимостей - выполняется только при монтировании
 
   const login = (userData: User) => {
     setUser(userData);

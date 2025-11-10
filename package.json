@@ -16,7 +16,10 @@
     "commit": "cz",
     "cm": "git add . && cz",
     "build-storybook": "storybook build",
+    "eslint": "eslint",
     "prepare": "husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "update-readme": "node scripts/update-readme.js",
     "test:screenshot": "playwright test --grep \"screenshot\"",
     "test:visual": "playwright test --grep \"visual\"",
@@ -45,6 +48,7 @@
     "@babel/preset-typescript": "^7.28.4",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.56.1",
     "@storybook/addon-docs": "^10.0.4",
@@ -56,6 +60,8 @@
     "@types/node": "^24.10.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^10.0.0",
     "concurrently": "^9.2.1",
@@ -63,6 +69,7 @@
     "cz-customizable": "^7.5.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^16.5.0",
     "html-webpack-plugin": "^5.6.4",
     "husky": "^9.1.7",
@@ -95,6 +102,15 @@
       "@babel/preset-react",
       "@babel/preset-typescript"
     ]
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ]
+    }
   },
   "repository": {
     "type": "git",

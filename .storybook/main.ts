@@ -1,42 +1,31 @@
-// @ts-nocheck
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
-  "stories": [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
   ],
-  "addons": [
-    "@storybook/addon-webpack5-compiler-swc",
-    "@storybook/addon-docs",
-    "@storybook/addon-onboarding"
-  ],
-  "framework": {
-    "name": "@storybook/react-webpack5",
-    "options": {}
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
   },
-  webpackFinal: async (config) => {
-    // Найдите правило для обработки CSS
-    const cssRule = config.module.rules.find(
-      (rule) => rule.test && rule.test.test(".css")
-    );
-
-    if (cssRule) {
-      // Замените существующее правило на новое
-      cssRule.use = [
-        "style-loader", 
-        "css-loader",
-        {
-          loader: "postcss-loader",
-          options: {
-            postcssOptions: {
-              plugins: ["tailwindcss", "autoprefixer"],
-            },
-          },
-        },
-      ];
+  webpackFinal: (config) => {
+    // Убрали async, так как нет await
+    const originalConfig = config;
+    
+    // Ваши модификации webpack
+    if (originalConfig.module?.rules) {
+      // Пример: добавляем правило для CSS
+      originalConfig.module.rules.push({
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      });
     }
-    return config;
+    
+    return originalConfig;
   },
 };
+
 export default config;

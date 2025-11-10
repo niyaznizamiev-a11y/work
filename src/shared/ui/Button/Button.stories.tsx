@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
 const meta = {
-  title: 'Shared/Button',  // Группировка по FSD слоям
+  title: 'Shared/Button',
   component: Button,
   parameters: {
     layout: 'centered',

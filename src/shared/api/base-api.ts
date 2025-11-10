@@ -14,6 +14,6 @@ export const baseApi = {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    return response.json();
+    return response.json() as Promise<T>;
   },
 };

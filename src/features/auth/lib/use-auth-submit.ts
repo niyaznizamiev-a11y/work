@@ -40,7 +40,8 @@ export function useAuthSubmit() {
       } else {
         setAuthError(data.error || 'Произошла ошибка');
       }
-    } catch (error) {
+    } catch {
+      // Убрали неиспользуемую переменную error
       setAuthError('Ошибка подключения к серверу');
     }
   };
