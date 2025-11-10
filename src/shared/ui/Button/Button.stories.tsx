@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '../../../../node_modules/@storybook/react/dist/index';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
 const meta = {
