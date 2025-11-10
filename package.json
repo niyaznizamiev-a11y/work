@@ -13,6 +13,8 @@
     "dev:all": "concurrently \"npm run dev:server\" \"npm start\"",
     "storybook": "storybook dev -p 6006",
     "commit-msg": "cz-customizable-ghooks",
+    "commit": "cz",
+    "cm": "git add . && cz",
     "build-storybook": "storybook build",
     "prepare": "husky install",
     "update-readme": "node scripts/update-readme.js",
@@ -78,19 +80,14 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g 'commitlint.js'"
-    }
-  },
   "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    },
-    "cz-customizable": {
-      "config": "commitizen"
-    }
+  "commitizen": {
+    "path": "./node_modules/cz-customizable"
   },
+  "cz-customizable": {
+    "config": "commitizen.js"
+  }
+},
   "babel": {
     "presets": [
       "@babel/preset-env",
