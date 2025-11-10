@@ -24,7 +24,7 @@ const config: StorybookConfig = {
     if (cssRule) {
       // Замените существующее правило на новое
       cssRule.use = [
-        "style-loader",
+        "style-loader", 
         "css-loader",
         {
           loader: "postcss-loader",

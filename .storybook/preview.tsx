@@ -11,7 +11,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [
+  decorators: [ 
     (Story) => (
       <div className="font-sans">
         <Story />

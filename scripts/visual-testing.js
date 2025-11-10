@@ -68,7 +68,7 @@ class VisualTestManager {
 const manager = new VisualTestManager();
 const command = process.argv[2];
 
-switch (command) {
+switch (command) { 
   case 'baseline':
     manager.createBaseline();
     break;

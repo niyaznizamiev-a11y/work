@@ -111,7 +111,7 @@ app.post('/api/feedback', (req, res) => {
     }
   );
 });
-
+ 
 // Регистрация пользователя
 app.post('/api/register', (req, res) => {
   const { username, email, password } = req.body;
