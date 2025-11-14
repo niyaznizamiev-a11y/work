@@ -1,9 +1,14 @@
 # Changelog
 
-Все заметные изменения в этом проекте будут документированы в этом файле.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.0.0/),
-и этот проект придерживается [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.1.0](https://github.com/niyaznizamiev-a11y/work/compare/v1.0.1...v1.1.0) (2025-11-14)
+
+
+### Features
+
+* **components:** настроил версионирование ([2e5ad13](https://github.com/niyaznizamiev-a11y/work/commit/2e5ad136af6516c6ebfc641475f39c09acf177c4))
+
 ### [1.0.1](https://github.com/niyaznizamiev-a11y/work/compare/v1.0.0...v1.0.1) (2025-11-14)
 
 
