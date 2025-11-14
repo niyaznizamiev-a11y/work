@@ -1,6 +1,6 @@
 {
   "name": "sfb",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "подключил typescript, postcss и tailwind",
   "main": "webpack.config.js",
   "scripts": {
