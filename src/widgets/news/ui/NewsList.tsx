@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNews } from '@/features/news';
+import { useNews } from '../../../features/news';
 import { NewsCard } from './NewsCard';
 
 export function NewsList() {

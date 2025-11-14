@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { Modal } from '../../../shared/ui/Modal/Modal';
 
 export function FeedbackModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);

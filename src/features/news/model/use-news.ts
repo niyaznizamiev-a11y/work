@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { NewsItem } from '@/entities/news';
-import { newsApi } from '@/entities/news/api/news-api';
+import { NewsItem } from '../../../entities/news';
+import { newsApi } from '../../../entities/news/api/news-api';
 
 export function useNews() {
   const [news, setNews] = useState<NewsItem[]>([]);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { UserWelcome } from '@/features/auth/ui/UserWelcome';
-import { Sidebar } from '@/widgets/sidebar/ui/Sidebar';
-import { FeedbackModal } from '@/widgets/feedback-modal/ui/FeedbackModal';
+import { UserWelcome } from '../../../features/auth/ui/UserWelcome';
+import { Sidebar } from '../../sidebar/ui/Sidebar';
+import { FeedbackModal } from '../../feedback-modal/ui/FeedbackModal';
 
 export function MainContent() {
   const [activeTab, setActiveTab] = useState('tab1');

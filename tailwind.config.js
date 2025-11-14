@@ -2,7 +2,10 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./index.html"
+    "./index.html",
+    "./.storybook/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.stories.{js,jsx,ts,tsx}",
+    "./.storybook/preview.tsx"
   ],
   theme: {
     extend: {

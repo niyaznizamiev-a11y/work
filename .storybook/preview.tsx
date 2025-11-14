@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/react';
-import '../src/app/styles/globals.css';
-import React from 'react';
+import '../src/app/styles/globals.css'; // ✅ Возвращаем импорт
 
 const preview: Preview = {
   parameters: {
@@ -8,17 +7,10 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/,
+        date: /Date$/i,
       },
     },
   },
-  decorators: [ 
-    (Story) => (
-      <div className="font-sans">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default preview;

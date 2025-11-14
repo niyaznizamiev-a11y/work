@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { User } from '@/entities/user';
+import { User } from '../../../entities/user';
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);

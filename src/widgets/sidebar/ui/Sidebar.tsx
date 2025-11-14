@@ -1,6 +1,6 @@
 // src/widgets/sidebar/ui/Sidebar.tsx
 import React from 'react';
-import { NewsList } from '@/widgets/news';
+import { NewsList } from '../../news';
 
 export function Sidebar() {
   const quickLinks = [
