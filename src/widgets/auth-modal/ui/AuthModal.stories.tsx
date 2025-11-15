@@ -1,5 +1,5 @@
 // AuthModal.stories.tsx
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { AuthModal } from './AuthModal';
 import { AuthProvider } from '../../../features/auth/model/auth-context';
 
