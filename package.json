@@ -1,6 +1,7 @@
 {
   "name": "sfb",
   "version": "1.1.2",
+  "type": "module",
   "description": "подключил typescript, postcss и tailwind",
   "main": "webpack.config.js",
   "scripts": {
@@ -13,7 +14,7 @@
     "build": "webpack --mode production",
     "server": "node server/server.js",
     "dev:server": "nodemon server/server.js",
-    "dev:all": "concurrently \"npm run dev:server\" \"npm start\"",
+    "dev:all": "concurrently \"npm run server:dev\" \"npm run web:start\"",
     "storybook": "storybook dev -p 6006",
     "commit-msg": "cz-customizable-ghooks",
     "commit": "cz",
@@ -40,7 +41,13 @@
     "commit:fix": "git add . && cz --type=fix",
     "commit:feat": "git add . && cz --type=feat",
     "commit:docs": "git add . && cz --type=docs",
-    "type": "module"
+    "web:dev": "npm run dev --workspace=@sfb/web",
+    "web:build": "npm run build --workspace=@sfb/web",
+    "web:start": "npm run start --workspace=@sfb/web",
+    "storybook:dev": "npm run storybook --workspace=@sfb/storybook",
+    "storybook:build": "npm run build-storybook --workspace=@sfb/storybook",
+    "server:start": "npm run start --workspace=@sfb/server",
+    "server:dev": "npm run dev --workspace=@sfb/server"
   },
   "author": "",
   "license": "ISC",
@@ -119,7 +126,7 @@
       "path": "./node_modules/cz-customizable"
     },
     "cz-customizable": {
-      "config": "commitizen.js"
+      "config": "commitizen.cjs"
     }
   },
   "babel": {
@@ -146,5 +153,11 @@
   "bugs": {
     "url": "https://github.com/niyaznizamiev-a11y/work/issues"
   },
-  "homepage": "https://github.com/niyaznizamiev-a11y/work#readme"
+  "homepage": "https://github.com/niyaznizamiev-a11y/work#readme",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
+  "private": true
 }

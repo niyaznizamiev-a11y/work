@@ -1,4 +1,13 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run lint --if-present 
+# Линтинг только измененных TypeScript/JavaScript файлов
+# Исключаем сборки и скомпилированные файлы
+git diff --cached --name-only --diff-filter=ACM | \
+  grep -E '\.(js|jsx|ts|tsx)$' | \
+  grep -v -E '(dist/|storybook-static/|\.bundle\.|\.chunk\.|\.min\.)' | \
+  xargs eslint --max-warnings=0 || {
+    echo "❌ ESLint проверка не пройдена!"
+    echo "   Чтобы пропустить проверку: git commit --no-verify"
+    exit 1
+  }

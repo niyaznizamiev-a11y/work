@@ -1,0 +1,11 @@
+apps/storybook/storybook-static/
+apps/web/dist/
+**/dist/
+**/build/
+**/*.bundle.js
+**/*.chunk.js
+
+node_modules/
+
+*.min.js
+*.bundle.*.js

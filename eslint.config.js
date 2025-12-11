@@ -9,10 +9,30 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 export default [
+  // ============ ВАЖНО: Игнорирование файлов ============
+  {
+    ignores: [
+      'node_modules/',
+      'dist/',
+      'build/',
+      'coverage/',
+      '**/.next/',
+      '**/.cache/',
+      // ============ ДОБАВЬТЕ ЭТИ СТРОКИ ============
+      '**/storybook-static/**',  // Сборка Storybook
+      '**/*.bundle.js',          // Бандлы
+      '**/*.chunk.js',           // Чанки
+      '**/sb-*/**',              // Storybook runtime файлы
+      'apps/storybook/storybook-static/**', // Конкретно для вашего случая
+      'apps/web/dist/**',                    // Сборка веб-приложения
+      '**/*.min.js',             // Минифицированные файлы
+      '**/*.production.js',      // Production сборки
+    ]
+  },
+
   // Базовые настройки для ВСЕХ файлов
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['node_modules/', 'dist/', 'build/', 'coverage/'],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
@@ -26,6 +46,12 @@ export default [
         ecmaFeatures: {
           jsx: true
         }
+      }
+    },
+    // ============ ДОБАВЬТЕ settings для React ============
+    settings: {
+      react: {
+        version: 'detect'  // Автоматически определяет версию React
       }
     }
   },
@@ -41,6 +67,11 @@ export default [
       ...reactPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off'
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
     }
   },
 
@@ -68,6 +99,11 @@ export default [
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-return': 'off'
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
     }
   },
 
