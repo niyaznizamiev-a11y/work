@@ -7,8 +7,8 @@ const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
   "stories": [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    "../apps/web/src/**/*.mdx",
+    "../apps/web/src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-webpack5-compiler-swc",
@@ -24,7 +24,7 @@ const config: StorybookConfig = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, '../apps/web/src'),
     };
 
     // Добавляем правило для CSS файлов

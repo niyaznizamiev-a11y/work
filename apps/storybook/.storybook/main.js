@@ -4,14 +4,15 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Получаем абсолютный путь к корневой src директории и нормализуем для кроссплатформенности
-const rootSrcDir = path.resolve(__dirname, '../../../src').replace(/\\/g, '/');
+// Абсолютный путь к приложению web
+const webAppDir = path.resolve(__dirname, '../../web').replace(/\\/g, '/');
+const webSrcDir = path.resolve(webAppDir, 'src').replace(/\\/g, '/');
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: [
-    `${rootSrcDir}/**/*.mdx`,
-    `${rootSrcDir}/**/*.stories.@(js|jsx|mjs|ts|tsx)`
+    `${webSrcDir}/**/*.mdx`,
+    `${webSrcDir}/**/*.stories.@(js|jsx|mjs|ts|tsx)`
   ],
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
@@ -23,25 +24,31 @@ const config = {
     options: {}
   },
   webpackFinal: async (config) => {
-    // Добавляем алиасы - указываем на корневой src
+    // Исправляем алиасы - указываем на apps/web/src
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../../../src'),
+      '@': webSrcDir,
+      '@app': path.resolve(webSrcDir, 'app'),
+      '@entities': path.resolve(webSrcDir, 'entities'),
+      '@features': path.resolve(webSrcDir, 'features'),
+      '@widgets': path.resolve(webSrcDir, 'widgets'),
+      '@shared': path.resolve(webSrcDir, 'shared'),
     };
     
-    // Добавляем корневую директорию в modules для разрешения модулей
+    // Добавляем корневую директорию для node_modules
+    const rootDir = path.resolve(__dirname, '../../../');
     config.resolve.modules = [
       ...(config.resolve.modules || []),
-      path.resolve(__dirname, '../../../'),
-      path.resolve(__dirname, '../../../node_modules'),
+      rootDir,
+      path.resolve(rootDir, 'node_modules'),
     ];
 
-    // Добавляем правило для CSS файлов
+    // Правило для CSS с PostCSS
     config.module = config.module || {};
     config.module.rules = config.module.rules || [];
-
-    // Убираем существующее правило для CSS если есть
+    
+    // Удаляем старые CSS правила
     config.module.rules = config.module.rules.filter(rule => {
       if (rule && typeof rule === 'object' && rule.test) {
         return !rule.test.toString().includes('css');
@@ -49,7 +56,7 @@ const config = {
       return true;
     });
 
-    // Добавляем новое правило для CSS с PostCSS
+    // Новое правило для CSS
     config.module.rules.push({
       test: /\.css$/,
       use: [
@@ -59,7 +66,7 @@ const config = {
           loader: 'postcss-loader',
           options: {
             postcssOptions: {
-              config: path.resolve(__dirname, '../../../postcss.config.mjs'),
+              config: path.resolve(rootDir, 'postcss.config.mjs'), // Убедитесь, что файл .js, а не .mjs
             },
           },
         },
@@ -71,4 +78,3 @@ const config = {
 };
 
 export default config;
-

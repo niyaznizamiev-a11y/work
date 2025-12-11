@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../../src/app/index.tsx'),
+  entry: path.resolve(__dirname, './src/app/index.tsx'),
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -20,7 +20,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
-      '@': path.resolve(__dirname, '../../src')
+      '@': path.resolve(__dirname, './src')
     }
   },
   module: {
@@ -51,7 +51,7 @@ module.exports = {
                 plugins: [
                   require('tailwindcss')({
                     content: [
-                      '../../src/**/*.{js,jsx,ts,tsx}',
+                      './src/**/*.{js,jsx,ts,tsx}',
                       '../../index.html',
                     ],
                     theme: {

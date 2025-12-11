@@ -17,16 +17,16 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@shared/*": ["src/shared/*"],
-      "@entities/*": ["src/entities/*"],
-      "@features/*": ["src/features/*"],
-      "@widgets/*": ["src/widgets/*"],
-      "@app/*": ["src/app/*"]
+      "@/*": ["apps/web/src/*"],
+      "@shared/*": ["apps/web/src/shared/*"],
+      "@entities/*": ["apps/web/src/entities/*"],
+      "@features/*": ["apps/web/src/features/*"],
+      "@widgets/*": ["apps/web/src/widgets/*"],
+      "@app/*": ["apps/web/src/app/*"]
     }
   },
   "include": [
-    "src/**/*",
+    "apps/web/src/**/*",
     "**/*.stories.tsx",
     "**/*.stories.ts",
     "**/*.stories.js",
@@ -37,6 +37,6 @@
     "dist",
     "build",
     "coverage",
-    "src/**/*.stories.tsx"
+    "apps/web/src/**/*.stories.tsx"
   ]
 }
