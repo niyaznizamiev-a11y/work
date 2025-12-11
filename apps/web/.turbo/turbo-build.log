@@ -1,0 +1,21 @@
+
+> @sfb/web@1.1.2 build
+> webpack --mode production
+
+asset [1m[32mmain.js[39m[22m 186 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main) 1 related asset
+asset [1m[32mindex.html[39m[22m 811 bytes [1m[33m[compared for emit][39m[22m
+orphan modules 41.9 KiB [1m[33m[orphan][39m[22m 32 modules
+runtime modules 698 bytes 4 modules
+cacheable modules 218 KiB
+  modules by path [1m../../node_modules/[39m[22m 152 KiB
+    modules by path [1m../../node_modules/style-loader/dist/runtime/*.js[39m[22m 6.04 KiB 6 modules
+    modules by path [1m../../node_modules/react/[39m[22m 8.05 KiB 4 modules
+    modules by path [1m../../node_modules/react-dom/[39m[22m 131 KiB 3 modules
+    modules by path [1m../../node_modules/css-loader/dist/runtime/*.js[39m[22m 2.4 KiB 2 modules
+    modules by path [1m../../node_modules/scheduler/[39m[22m 4.35 KiB
+      [1m../../node_modules/scheduler/index.js[39m[22m 205 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+      [1m../../node_modules/scheduler/cjs/scheduler.production.min.js[39m[22m 4.15 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  modules by path [1m./src/app/[39m[22m 66.2 KiB
+    [1m./src/app/index.tsx + 32 modules[39m[22m 42.2 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    ../../node_modules/css-loader/dist/cjs.js!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]![1m./src/app/styles/globals.css[39m[22m 24 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+webpack 5.102.1 compiled [1m[32msuccessfully[39m[22m in 4536 ms
